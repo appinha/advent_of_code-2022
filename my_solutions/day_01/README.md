@@ -1,12 +1,12 @@
-# Day X: Title
+# Day 1: Calorie Counting
 
 ## Summary
 
-📃 **Input:** .
+📃 **Input:** a list of calories (integers) grouped by elf.
 
-⭐ **Part One:** .
+⭐ **Part One:** find the most total calories an elf is carrying.
 
-⭐ **Part Two:** .
+⭐ **Part Two:** find the sum of calories of the 3 elves that are carrying the most total calories.
 
 ## Puzzle instructions
-https://adventofcode.com/2021/day/X
+https://adventofcode.com/2021/day/1

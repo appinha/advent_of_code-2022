@@ -29,8 +29,8 @@
 ---
 
 [![Day 01](https://badgen.net/badge/01/%E2%98%85%E2%98%85/yellow)](my_solutions/day01)
-<!-- [![Day 02](https://badgen.net/badge/02/%E2%98%85%E2%98%85/yellow)](my_solutions/day02)
-[![Day 03](https://badgen.net/badge/03/%E2%98%85%E2%98%85/yellow)](my_solutions/day03)
+[![Day 02](https://badgen.net/badge/02/%E2%98%85%E2%98%85/yellow)](my_solutions/day02)
+<!-- [![Day 03](https://badgen.net/badge/03/%E2%98%85%E2%98%85/yellow)](my_solutions/day03)
 [![Day 04](https://badgen.net/badge/04/%E2%98%85%E2%98%85/yellow)](my_solutions/day04)
 [![Day 05](https://badgen.net/badge/05/%E2%98%85%E2%98%85/yellow)](my_solutions/day05)
 [![Day 06](https://badgen.net/badge/06/%E2%98%85%E2%98%85/yellow)](my_solutions/day06)
@@ -130,8 +130,8 @@ $ make test d=12 p=1
 | DAY							| PUZZLE TITLE	| PUZZLE SUMMARY
 | :-:							| :-						| :-
 | [📁 01](my_solutions/day_01)	| **Title**	Calorie Counting	| 📃 **Input:** a list of calories (integers) grouped by elf.<br />⭐ **Part One:** find the most total calories an elf is carrying. <br />⭐ **Part Two:** find the sum of calories of the 3 elves that are carrying the most total calories.
-<!--| [📁 02](my_solutions/day_02)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 03](my_solutions/day_03)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 02](my_solutions/day_02)	| **Title**	Rock Paper Scissors	| 📃 **Input:** an encrypted strategy guide.<br />⭐ **Part One:** find the total score after following the strategy guide. <br />⭐ **Part Two:** find the total score after following the strategy guide, with a new interpretation of the guide.
+<!--| [📁 03](my_solutions/day_03)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 04](my_solutions/day_04)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 05](my_solutions/day_05)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 06](my_solutions/day_06)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

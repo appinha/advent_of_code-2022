@@ -9,4 +9,4 @@
 ⭐ **Part Two:** find the sum of calories of the 3 elves that are carrying the most total calories.
 
 ## Puzzle instructions
-https://adventofcode.com/2021/day/1
+https://adventofcode.com/2022/day/1

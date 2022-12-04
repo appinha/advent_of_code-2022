@@ -9,4 +9,4 @@
 ⭐ **Part Two:** find the total score after following the strategy guide, with a new interpretation of the guide.
 
 ## Puzzle instructions
-https://adventofcode.com/2021/day/2
+https://adventofcode.com/2022/day/2

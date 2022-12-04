@@ -9,4 +9,4 @@
 ⭐ **Part Two:** find the sum of the priority of the badges (common item type for each group of 3 rucksacks).
 
 ## Puzzle instructions
-https://adventofcode.com/2021/day/3
+https://adventofcode.com/2022/day/3

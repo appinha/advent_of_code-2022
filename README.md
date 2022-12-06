@@ -33,8 +33,8 @@
 [![Day 03](https://badgen.net/badge/03/%E2%98%85%E2%98%85/yellow)](my_solutions/day03)
 [![Day 04](https://badgen.net/badge/04/%E2%98%85%E2%98%85/yellow)](my_solutions/day04)
 [![Day 05](https://badgen.net/badge/05/%E2%98%85%E2%98%85/yellow)](my_solutions/day05)
-<!-- [![Day 06](https://badgen.net/badge/06/%E2%98%85%E2%98%85/yellow)](my_solutions/day06)
-[![Day 07](https://badgen.net/badge/07/%E2%98%85%E2%98%85/yellow)](my_solutions/day07)
+[![Day 06](https://badgen.net/badge/06/%E2%98%85%E2%98%85/yellow)](my_solutions/day06)
+<!-- [![Day 07](https://badgen.net/badge/07/%E2%98%85%E2%98%85/yellow)](my_solutions/day07)
 [![Day 08](https://badgen.net/badge/08/%E2%98%85%E2%98%85/yellow)](my_solutions/day08)
 [![Day 09](https://badgen.net/badge/09/%E2%98%85%E2%98%85/yellow)](my_solutions/day09)
 [![Day 10](https://badgen.net/badge/10/%E2%98%85%E2%98%85/yellow)](my_solutions/day10)
@@ -134,8 +134,8 @@ $ make test d=12 p=1
 | [📁 03](my_solutions/day_03)	| **Rucksack Reorganization**		| 📃 **Input:** a list of all of the items currently in each rucksack (a list of strings).<br />⭐ **Part One:** find the sum of the priority of the common item type. <br />⭐ **Part Two:** find the sum of the priority of the badges (common item type for each group of 3 rucksacks).
 | [📁 04](my_solutions/day_04)	| **Camp Cleanup**		| 📃 **Input:** a list of the section assignments for each pair of elf (a list of range pairs).<br />⭐ **Part One:** find how many pairs in which one range fully contains the other. <br />⭐ **Part Two:** find how many pairs in which the ranges overlap.
 | [📁 05](my_solutions/day_05)	| **Supply Stacks**		| 📃 **Input:** a drawing of the starting stacks of crates and the rearrangement procedure (moves).<br />⭐ **Part One:** find what crate ends up on top of each stack after the rearrangement procedure completes. <br />⭐ **Part Two:** same as before, but with a different rearrangement procedure.
-<!--| [📁 06](my_solutions/day_06)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 07](my_solutions/day_07)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 06](my_solutions/day_06)	| **Tuning Trouble**		| 📃 **Input:** a datastream buffer (a string of lowercase alphabetic characters).<br />⭐ **Part One:** find how many characters need to be processed before the first start-of-packet marker is detected. <br />⭐ **Part Two:** find how many characters need to be processed before the first start-of-message marker is detected.
+<!--| [📁 07](my_solutions/day_07)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 08](my_solutions/day_08)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 09](my_solutions/day_09)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 10](my_solutions/day_10)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

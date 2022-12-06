@@ -32,8 +32,8 @@
 [![Day 02](https://badgen.net/badge/02/%E2%98%85%E2%98%85/yellow)](my_solutions/day02)
 [![Day 03](https://badgen.net/badge/03/%E2%98%85%E2%98%85/yellow)](my_solutions/day03)
 [![Day 04](https://badgen.net/badge/04/%E2%98%85%E2%98%85/yellow)](my_solutions/day04)
-<!-- [![Day 05](https://badgen.net/badge/05/%E2%98%85%E2%98%85/yellow)](my_solutions/day05)
-[![Day 06](https://badgen.net/badge/06/%E2%98%85%E2%98%85/yellow)](my_solutions/day06)
+[![Day 05](https://badgen.net/badge/05/%E2%98%85%E2%98%85/yellow)](my_solutions/day05)
+<!-- [![Day 06](https://badgen.net/badge/06/%E2%98%85%E2%98%85/yellow)](my_solutions/day06)
 [![Day 07](https://badgen.net/badge/07/%E2%98%85%E2%98%85/yellow)](my_solutions/day07)
 [![Day 08](https://badgen.net/badge/08/%E2%98%85%E2%98%85/yellow)](my_solutions/day08)
 [![Day 09](https://badgen.net/badge/09/%E2%98%85%E2%98%85/yellow)](my_solutions/day09)
@@ -129,12 +129,12 @@ $ make test d=12 p=1
 
 | DAY							| PUZZLE TITLE	| PUZZLE SUMMARY
 | :-:							| :-						| :-
-| [📁 01](my_solutions/day_01)	| **Title**	Calorie Counting	| 📃 **Input:** a list of calories (integers) grouped by elf.<br />⭐ **Part One:** find the most total calories an elf is carrying. <br />⭐ **Part Two:** find the sum of calories of the 3 elves that are carrying the most total calories.
-| [📁 02](my_solutions/day_02)	| **Title**	Rock Paper Scissors	| 📃 **Input:** an encrypted strategy guide.<br />⭐ **Part One:** find the total score after following the strategy guide. <br />⭐ **Part Two:** find the total score after following the strategy guide, with a new interpretation of the guide.
-| [📁 03](my_solutions/day_03)	| **Title**	Rucksack Reorganization	| 📃 **Input:** a list of all of the items currently in each rucksack (a list of strings).<br />⭐ **Part One:** find the sum of the priority of the common item type. <br />⭐ **Part Two:** find the sum of the priority of the badges (common item type for each group of 3 rucksacks).
-| [📁 04](my_solutions/day_04)	| **Title**	Camp Cleanup	| 📃 **Input:** a list of the section assignments for each pair of elf (a list of range pairs).<br />⭐ **Part One:** find how many pairs in which one range fully contains the other. <br />⭐ **Part Two:** find how many pairs in which the ranges overlap.
-<!--| [📁 05](my_solutions/day_05)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 06](my_solutions/day_06)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 01](my_solutions/day_01)	| **Calorie Counting**		| 📃 **Input:** a list of calories (integers) grouped by elf.<br />⭐ **Part One:** find the most total calories an elf is carrying. <br />⭐ **Part Two:** find the sum of calories of the 3 elves that are carrying the most total calories.
+| [📁 02](my_solutions/day_02)	| **Rock Paper Scissors**		| 📃 **Input:** an encrypted strategy guide.<br />⭐ **Part One:** find the total score after following the strategy guide. <br />⭐ **Part Two:** find the total score after following the strategy guide, with a new interpretation of the guide.
+| [📁 03](my_solutions/day_03)	| **Rucksack Reorganization**		| 📃 **Input:** a list of all of the items currently in each rucksack (a list of strings).<br />⭐ **Part One:** find the sum of the priority of the common item type. <br />⭐ **Part Two:** find the sum of the priority of the badges (common item type for each group of 3 rucksacks).
+| [📁 04](my_solutions/day_04)	| **Camp Cleanup**		| 📃 **Input:** a list of the section assignments for each pair of elf (a list of range pairs).<br />⭐ **Part One:** find how many pairs in which one range fully contains the other. <br />⭐ **Part Two:** find how many pairs in which the ranges overlap.
+| [📁 05](my_solutions/day_05)	| **Supply Stacks**		| 📃 **Input:** a drawing of the starting stacks of crates and the rearrangement procedure (moves).<br />⭐ **Part One:** find what crate ends up on top of each stack after the rearrangement procedure completes. <br />⭐ **Part Two:** same as before, but with a different rearrangement procedure.
+<!--| [📁 06](my_solutions/day_06)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 07](my_solutions/day_07)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 08](my_solutions/day_08)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 09](my_solutions/day_09)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

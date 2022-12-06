@@ -1,0 +1,2 @@
+Part 1 = "LJSVLTWQM"
+Part 2 = "BRQWDBBJM"

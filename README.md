@@ -35,8 +35,8 @@
 [![Day 05](https://badgen.net/badge/05/%E2%98%85%E2%98%85/yellow)](my_solutions/day05)
 [![Day 06](https://badgen.net/badge/06/%E2%98%85%E2%98%85/yellow)](my_solutions/day06)
 [![Day 07](https://badgen.net/badge/07/%E2%98%85%E2%98%85/yellow)](my_solutions/day07)
-<!-- [![Day 08](https://badgen.net/badge/08/%E2%98%85%E2%98%85/yellow)](my_solutions/day08)
-[![Day 09](https://badgen.net/badge/09/%E2%98%85%E2%98%85/yellow)](my_solutions/day09)
+[![Day 08](https://badgen.net/badge/08/%E2%98%85%E2%98%85/yellow)](my_solutions/day08)
+<!-- [![Day 09](https://badgen.net/badge/09/%E2%98%85%E2%98%85/yellow)](my_solutions/day09)
 [![Day 10](https://badgen.net/badge/10/%E2%98%85%E2%98%85/yellow)](my_solutions/day10)
 [![Day 11](https://badgen.net/badge/11/%E2%98%85%E2%98%85/yellow)](my_solutions/day11)
 [![Day 12](https://badgen.net/badge/12/%E2%98%85%E2%98%85/yellow)](my_solutions/day12)
@@ -136,8 +136,8 @@ $ make test d=12 p=1
 | [📁 05](my_solutions/day_05)	| **Supply Stacks**		| 📃 **Input:** a drawing of the starting stacks of crates and the rearrangement procedure (moves).<br />⭐ **Part One:** find what crate ends up on top of each stack after the rearrangement procedure completes. <br />⭐ **Part Two:** same as before, but with a different rearrangement procedure.
 | [📁 06](my_solutions/day_06)	| **Tuning Trouble**		| 📃 **Input:** a datastream buffer (a string of lowercase alphabetic characters).<br />⭐ **Part One:** find how many characters need to be processed before the first start-of-packet marker is detected. <br />⭐ **Part Two:** find how many characters need to be processed before the first start-of-message marker is detected.
 | [📁 07](my_solutions/day_07)	| **No Space Left On Device**		| 📃 **Input:** the resulting terminal output of browsing around the device's filesystem.<br />⭐ **Part One:** find the sum of all of the directories with a total size of at most 100000. <br />⭐ **Part Two:** find the smallest directory that, if deleted, would free up enough space on the filesystem to run the update.
-<!--| [📁 08](my_solutions/day_08)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 09](my_solutions/day_09)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 08](my_solutions/day_08)	| **Treetop Tree House**		| 📃 **Input:** a map with the height of each tree (a grid of single digit integers).<br />⭐ **Part One:** find how many trees are visible from outside the grid. <br />⭐ **Part Two:** find the highest scenic score possible for any tree.
+<!--| [📁 09](my_solutions/day_09)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 10](my_solutions/day_10)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 11](my_solutions/day_11)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 12](my_solutions/day_12)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

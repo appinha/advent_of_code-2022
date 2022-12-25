@@ -10,51 +10,57 @@ class DayPuzzleSolver():
         self.delimiter = "\n\n"
 
     def solve_part_1(self, raw_input):
-        stacks, moves = self._get_input(raw_input)
+        stacks, moves = process_input(raw_input)
 
         for move in moves:
             for _ in range(move.n):
                 stacks[move.end - 1].push(stacks[move.start - 1].pop())
-        return self._list_last_items(stacks)
+
+        return list_last_items(stacks)
 
     def solve_part_2(self, raw_input):
-        stacks, moves = self._get_input(raw_input)
+        stacks, moves = process_input(raw_input)
 
         for move in moves:
             items = [stacks[move.start - 1].pop() for _ in range(move.n)]
             for item in reversed(items):
                 stacks[move.end - 1].push(item)
-        return self._list_last_items(stacks)
 
-    def _get_input(self, raw_input):
-        return self._get_stacks(raw_input[0]), self._get_moves(raw_input[1])
+        return list_last_items(stacks)
 
-    def _get_stacks(self, raw_stacks):
 
-        def init_stacks(raw_stacks):
-            columns = lib.find_all_integers(raw_stacks[0])
-            return [lib.Stack() for _ in columns]
+def process_input(raw_input):
+    return get_stacks(raw_input[0]), get_moves(raw_input[1])
 
-        def get_letters(raw_stack):
-            return [letter for i, letter in enumerate(raw_stack) if i % 4 == 1]
 
-        raw_stacks = list(reversed(raw_stacks.split("\n")))
-        stacks = init_stacks(raw_stacks)
+def get_stacks(raw_stacks):
 
-        for raw_stack in raw_stacks[1:]:
-            for i, letter in enumerate(get_letters(raw_stack)):
-                if letter != " ":
-                    stacks[i].push(letter)
-        return stacks
+    def init_stacks(raw_stacks):
+        columns = lib.find_all_integers(raw_stacks[0])
+        return [lib.Stack() for _ in columns]
 
-    def _get_moves(self, raw_moves):
-        return [Move(*lib.find_all_integers(m)) for m in raw_moves.split("\n")]
+    def get_letters(raw_stack):
+        return [letter for i, letter in enumerate(raw_stack) if i % 4 == 1]
 
-    def _list_last_items(self, stacks):
-        return "".join([stack.items[-1] for stack in stacks])
+    raw_stacks = list(reversed(raw_stacks.split("\n")))
+    stacks = init_stacks(raw_stacks)
+
+    for raw_stack in raw_stacks[1:]:
+        for i, letter in enumerate(get_letters(raw_stack)):
+            if letter != " ":
+                stacks[i].push(letter)
+    return stacks
 
 
 class Move(NamedTuple):
     n: int
     start: int
     end: int
+
+
+def get_moves(raw_moves):
+    return [Move(*lib.find_all_integers(m)) for m in raw_moves.split("\n")]
+
+
+def list_last_items(stacks):
+    return "".join([stack.items[-1] for stack in stacks])

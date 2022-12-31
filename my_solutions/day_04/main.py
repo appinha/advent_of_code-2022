@@ -10,24 +10,21 @@ class DayPuzzleSolver():
         self.delimiter = "\n"
 
     def solve_part_1(self, raw_input: str):
-        result = 0
-        for pair in raw_input:
-            ranges = process_input(pair)
-            if is_contained(*ranges) or is_contained(*reversed(ranges)):
-                result += 1
-        return result
+        pairs = process_input(raw_input)
+        return sum(1 for ranges in pairs
+            if is_contained(*ranges) or is_contained(*reversed(ranges)))
 
     def solve_part_2(self, raw_input: str):
-        result = 0
-        for pair in raw_input:
-            ranges = process_input(pair)
-            if has_overlap(*ranges):
-                result += 1
-        return result
+        pairs = process_input(raw_input)
+        return sum(1 for ranges in pairs if has_overlap(*ranges))
 
 
-def process_input(pair: str):
-    return [list(map(int, r.split("-"))) for r in pair.split(",")]
+def process_input(raw_input: str):
+
+    def get_ranges(pair: str):
+        return [list(map(int, r.split("-"))) for r in pair.split(",")]
+
+    return [get_ranges(pair) for pair in raw_input]
 
 
 def is_contained(r1: list[int], r2: list[int]):

@@ -11,11 +11,9 @@ class DayPuzzleSolver():
 
     def solve_part_1(self, raw_input: str):
         instructions_per_cycle = process_input(raw_input)
-        total = 0
-        for i, acc in enumerate(itertools.accumulate([1] + instructions_per_cycle), 1):
-            if i % 40 == 20:
-                total += i * acc
-        return total
+        return sum(i * acc
+            for i, acc in enumerate(itertools.accumulate([1] + instructions_per_cycle), 1)
+            if i % 40 == 20)
 
     def solve_part_2(self, raw_input: str):
         instructions_per_cycle = process_input(raw_input)

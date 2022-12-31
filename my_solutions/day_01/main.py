@@ -1,6 +1,8 @@
+from __future__ import annotations
 import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
-from pprint import pprint
+from aoc_lib import ROW, COL
+from aoc_lib.imports import *
 
 
 class DayPuzzleSolver():
@@ -8,17 +10,13 @@ class DayPuzzleSolver():
         self.delimiter = "\n\n"
 
     def solve_part_1(self, raw_input):
-        ordered_total_calories = process_input(raw_input)
-        return ordered_total_calories[0]
+        calories_totals = process_input(raw_input)
+        return heapq.nlargest(1, calories_totals)[0]
 
     def solve_part_2(self, raw_input):
-        ordered_total_calories = process_input(raw_input)
-        return sum(ordered_total_calories[:3])
+        calories_totals = process_input(raw_input)
+        return sum(heapq.nlargest(3, calories_totals))
 
 
 def process_input(raw_input):
-    total_calories = []
-    for elf in raw_input:
-        calories = map(int, elf.split("\n"))
-        total_calories.append(sum(calories))
-    return sorted(total_calories, reverse=True)
+    return [sum(map(int, elf.split("\n"))) for elf in raw_input]

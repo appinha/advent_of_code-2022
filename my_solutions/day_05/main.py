@@ -1,7 +1,7 @@
 from __future__ import annotations
 import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
-from aoc_lib import ROW, COL
+from aoc_lib import Stack
 from aoc_lib.imports import *
 
 
@@ -9,7 +9,7 @@ class DayPuzzleSolver():
     def __init__(self):
         self.delimiter = "\n\n"
 
-    def solve_part_1(self, raw_input):
+    def solve_part_1(self, raw_input: str):
         stacks, moves = process_input(raw_input)
 
         for move in moves:
@@ -18,7 +18,7 @@ class DayPuzzleSolver():
 
         return list_last_items(stacks)
 
-    def solve_part_2(self, raw_input):
+    def solve_part_2(self, raw_input: str):
         stacks, moves = process_input(raw_input)
 
         for move in moves:
@@ -29,15 +29,15 @@ class DayPuzzleSolver():
         return list_last_items(stacks)
 
 
-def process_input(raw_input):
+def process_input(raw_input: str):
     return get_stacks(raw_input[0]), get_moves(raw_input[1])
 
 
-def get_stacks(raw_stacks):
+def get_stacks(raw_stacks: str):
 
     def init_stacks(raw_stacks):
         columns = lib.find_all_integers(raw_stacks[0])
-        return [lib.Stack() for _ in columns]
+        return [Stack() for _ in columns]
 
     def get_letters(raw_stack):
         return [letter for i, letter in enumerate(raw_stack) if i % 4 == 1]
@@ -58,9 +58,9 @@ class Move(NamedTuple):
     end: int
 
 
-def get_moves(raw_moves):
+def get_moves(raw_moves: str):
     return [Move(*lib.find_all_integers(m)) for m in raw_moves.split("\n")]
 
 
-def list_last_items(stacks):
+def list_last_items(stacks: list[Stack]):
     return "".join([stack.items[-1] for stack in stacks])

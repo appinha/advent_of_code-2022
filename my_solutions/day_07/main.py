@@ -1,8 +1,8 @@
+from __future__ import annotations
 import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
-from pprint import pprint
-
-from collections import defaultdict
+from aoc_lib import ROW, COL
+from aoc_lib.imports import *
 
 
 class DayPuzzleSolver():
@@ -21,8 +21,8 @@ class DayPuzzleSolver():
 
 def process_input(raw_input):
     path_stack = lib.Stack()
-    contents_by_path = defaultdict(list)
-    size_by_path = defaultdict(int)
+    contents_by_path = collections.defaultdict(list)
+    size_by_path = collections.defaultdict(int)
 
     def build_curr_path():
         return "/".join(path_stack.items)

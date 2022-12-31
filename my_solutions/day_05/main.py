@@ -1,8 +1,8 @@
+from __future__ import annotations
 import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
-from pprint import pprint
-
-from typing import NamedTuple
+from aoc_lib import ROW, COL
+from aoc_lib.imports import *
 
 
 class DayPuzzleSolver():

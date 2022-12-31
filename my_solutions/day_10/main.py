@@ -1,8 +1,8 @@
+from __future__ import annotations
 import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
-from pprint import pprint
-
-from itertools import accumulate
+from aoc_lib import ROW, COL
+from aoc_lib.imports import *
 
 
 class DayPuzzleSolver():
@@ -12,7 +12,7 @@ class DayPuzzleSolver():
     def solve_part_1(self, raw_input: str):
         instructions_per_cycle = process_input(raw_input)
         total = 0
-        for i, acc in enumerate(accumulate([1] + instructions_per_cycle), 1):
+        for i, acc in enumerate(itertools.accumulate([1] + instructions_per_cycle), 1):
             if i % 40 == 20:
                 total += i * acc
         return total
@@ -21,7 +21,7 @@ class DayPuzzleSolver():
         instructions_per_cycle = process_input(raw_input)
         list_sprint_xs = lambda x: [x - 1, x, x + 1]
         screen = ""
-        for i, acc in enumerate(accumulate([1] + instructions_per_cycle)):
+        for i, acc in enumerate(itertools.accumulate([1] + instructions_per_cycle)):
             x = i % 40
             screen += "█" if x in list_sprint_xs(acc) else " "
             if x == 39:

@@ -39,8 +39,8 @@
 [![Day 09](https://badgen.net/badge/09/%E2%98%85%E2%98%85/yellow)](my_solutions/day09)
 [![Day 10](https://badgen.net/badge/10/%E2%98%85%E2%98%85/yellow)](my_solutions/day10)
 [![Day 11](https://badgen.net/badge/11/%E2%98%85%E2%98%85/yellow)](my_solutions/day11)
-<!-- [![Day 12](https://badgen.net/badge/12/%E2%98%85%E2%98%85/yellow)](my_solutions/day12)
-[![Day 13](https://badgen.net/badge/13/%E2%98%85%E2%98%85/yellow)](my_solutions/day13)
+[![Day 12](https://badgen.net/badge/12/%E2%98%85%E2%98%85/yellow)](my_solutions/day12)
+<!-- [![Day 13](https://badgen.net/badge/13/%E2%98%85%E2%98%85/yellow)](my_solutions/day13)
 [![Day 14](https://badgen.net/badge/14/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
 [![Day 15](https://badgen.net/badge/15/%E2%98%85%E2%98%85/yellow)](my_solutions/day15)
 [![Day 16](https://badgen.net/badge/16/%E2%98%85%E2%98%85/yellow)](my_solutions/day16)
@@ -136,8 +136,8 @@ $ make test d=12 p=1
 | [📁 09](my_solutions/day_09)	| **Rope Bridge**		| 📃 **Input:** a list of moves.<br />⭐ **Part One:** simulate the series of motions to find how many positions the rope's tail visited at least once. <br />⭐ **Part Two:** same as before, but now the rope has ten knots.
 | [📁 10](my_solutions/day_10)	| **Cathode-Ray Tube**		| 📃 **Input:** a list of CPU instructions.<br />⭐ **Part One:** find the sum of the six signal strengths. <br />⭐ **Part Two:** find the eight capital letters that appear after rendering the image given by the program.
 | [📁 11](my_solutions/day_11)	| **Monkey in the Middle**		| 📃 **Input:** notes on the items each monkey currently has, how worried you are about those items, and how the monkey makes decisions based on your worry level.<br />⭐ **Part One:** count how many items the monkeys inspect over 20 rounds, then calculate the level of monkey business. <br />⭐ **Part Two:** same as before, but without reducing the worry levels after each inspection and for 10.000 rounds.
-<!-- | [📁 12](my_solutions/day_12)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 13](my_solutions/day_13)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 12](my_solutions/day_12)	| **Hill Climbing Algorithm**		| 📃 **Input:** a heightmap of the surrounding area.<br />⭐ **Part One:** find the fewest steps required to move from the current positions to the highest location. <br />⭐ **Part Two:** find the fewest steps required to move starting from any square with the lowest elevation to the highest location.
+<!-- | [📁 13](my_solutions/day_13)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 14](my_solutions/day_14)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 15](my_solutions/day_15)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 16](my_solutions/day_16)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

@@ -9,7 +9,7 @@ class DayPuzzleSolver():
     def __init__(self):
         self.delimiter = "\n"
 
-    def solve_part_1(self, raw_input):
+    def solve_part_1(self, raw_input: str):
         result = 0
         for pair in raw_input:
             ranges = process_input(pair)
@@ -17,7 +17,7 @@ class DayPuzzleSolver():
                 result += 1
         return result
 
-    def solve_part_2(self, raw_input):
+    def solve_part_2(self, raw_input: str):
         result = 0
         for pair in raw_input:
             ranges = process_input(pair)
@@ -26,14 +26,14 @@ class DayPuzzleSolver():
         return result
 
 
-def process_input(pair):
+def process_input(pair: str):
     return [list(map(int, r.split("-"))) for r in pair.split(",")]
 
 
-def is_contained(r1, r2):
+def is_contained(r1: list[int], r2: list[int]):
     return r1[0] >= r2[0] and r1[1] <= r2[1]
 
 
-def has_overlap(r1, r2):
+def has_overlap(r1: list[int], r2: list[int]):
     r1, r2 = map(set, map(lambda r: range(r[0], r[1] + 1), [r1, r2]))
     return r1.intersection(r2)

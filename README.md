@@ -41,8 +41,8 @@
 [![Day 11](https://badgen.net/badge/11/%E2%98%85%E2%98%85/yellow)](my_solutions/day11)
 [![Day 12](https://badgen.net/badge/12/%E2%98%85%E2%98%85/yellow)](my_solutions/day12)
 [![Day 13](https://badgen.net/badge/13/%E2%98%85%E2%98%85/yellow)](my_solutions/day13)
-<!-- [![Day 14](https://badgen.net/badge/14/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
-[![Day 15](https://badgen.net/badge/15/%E2%98%85%E2%98%85/yellow)](my_solutions/day15)
+[![Day 14](https://badgen.net/badge/14/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
+<!-- [![Day 15](https://badgen.net/badge/15/%E2%98%85%E2%98%85/yellow)](my_solutions/day15)
 [![Day 16](https://badgen.net/badge/16/%E2%98%85%E2%98%85/yellow)](my_solutions/day16)
 [![Day 17](https://badgen.net/badge/17/%E2%98%85%E2%98%85/yellow)](my_solutions/day17)
 [![Day 18](https://badgen.net/badge/18/%E2%98%85%E2%98%85/yellow)](my_solutions/day18)
@@ -138,8 +138,8 @@ $ make test d=12 p=1
 | [📁 11](my_solutions/day_11)	| **Monkey in the Middle**		| 📃 **Input:** notes on the items each monkey currently has, how worried you are about those items, and how the monkey makes decisions based on your worry level.<br />⭐ **Part One:** count how many items the monkeys inspect over 20 rounds, then calculate the level of monkey business. <br />⭐ **Part Two:** same as before, but without reducing the worry levels after each inspection and for 10.000 rounds.
 | [📁 12](my_solutions/day_12)	| **Hill Climbing Algorithm**		| 📃 **Input:** a heightmap of the surrounding area.<br />⭐ **Part One:** find the fewest steps required to move from the current positions to the highest location. <br />⭐ **Part Two:** find the fewest steps required to move starting from any square with the lowest elevation to the highest location.
 | [📁 13](my_solutions/day_13)	| **Distress Signal**		| 📃 **Input:** the list of received packets.<br />⭐ **Part One:** find the sum of the indices of pairs of packets that are in the right order. <br />⭐ **Part Two:** organize all of the packets into the correct order to find the decoder key for the distress signal.
-<!-- | [📁 14](my_solutions/day_14)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 15](my_solutions/day_15)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 14](my_solutions/day_14)	| **Regolith Reservoir**		| 📃 **Input:** the scan of a two-dimensional vertical slice of the cave.<br />⭐ **Part One:** simulate the falling sand to find how many units of sand come to rest before sand starts flowing into the abyss below. <br />⭐ **Part Two:** simulate the falling sand until the source of the sand becomes blocked, then find how many units of sand come to rest.
+<!-- | [📁 15](my_solutions/day_15)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 16](my_solutions/day_16)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 17](my_solutions/day_17)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 18](my_solutions/day_18)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

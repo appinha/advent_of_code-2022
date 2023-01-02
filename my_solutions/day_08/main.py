@@ -1,7 +1,7 @@
 from __future__ import annotations
 import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
-from aoc_lib import Grid
+from aoc_lib import CARDINAL, Grid
 from aoc_lib.imports import *
 
 
@@ -17,7 +17,15 @@ class DayPuzzleSolver():
 
         not_visible_trees = []
         for location, tree_lines in trees.orthogonal_neighbours_by_location.items():
-            if any([not line for line in tree_lines]):
+            tree_lines = []
+            for direction in CARDINAL:
+                neighbours = lib.list_neighbours_in_direction(location, trees.shape, direction)
+                if not neighbours:
+                    tree_lines = None
+                    break
+            if tree_lines == None:
+                continue
+            if any(not line for line in tree_lines):
                 continue
             if all(is_not_visible_in_line(location, line) for line in tree_lines):
                 not_visible_trees.append(location)

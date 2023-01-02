@@ -2,257 +2,157 @@ import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
 from pprint import pprint
 
-import copy
-from typing import Deque, NamedTuple
+from collections import defaultdict
+from typing import NamedTuple
 
-SHOULD_PRINT = False
-PRINT_HEIGHT = 10
+
+PRINT_GRID = False
 
 
 class DayPuzzleSolver():
     def __init__(self):
         self.delimiter = ""
 
-    def solve_part_1(self, raw_input):
-        jets = lib.cycle(list(raw_input))
+    def solve_part_1(self, raw_input: str):
+        jets = process_input(raw_input)
         return play_tetris(jets, 2022)
 
-    def solve_part_2(self, raw_input):
-        jets = lib.cycle(list(raw_input))
-        return play_tetris(jets, 100_000_000)
-        # return play_tetris(jets, 1_000_000_000_000)
+    def solve_part_2(self, raw_input: str):
+        jets = process_input(raw_input)
+        return play_tetris(jets, 1_000_000_000_000)
+
+
+HOR_LINE = [(0, 0), (0, 1), (0, 2), (0, 3)]
+CROSS    = [(0, 1), (1, 0), (1, 1), (1, 2), (2, 1)]
+L_SHAPE  = [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)]
+VER_LINE = [(0, 0), (1, 0), (2, 0), (3, 0)]
+SQUARE   = [(0, 0), (0, 1), (1, 0), (1, 1)]
+
+
+def process_input(raw_input: str):
+    return lib.cycle(list(raw_input))
 
 
 def play_tetris(jets, max_rocks):
     rocks = lib.cycle([HOR_LINE, CROSS, L_SHAPE, VER_LINE, SQUARE])
-    tower = Deque([list("+-------+")])
+    filled = set([(0, col) for col in range(7)])
     rock_count = 0
-    can_drop = False
+    top = 0
 
-    def insert_rock(tower: Deque, rock):
-        new = Deque(copy.deepcopy(rock.initial)) + Deque([list(EMPTY_LINE) for _ in range(3)])
-        tower.extendleft(reversed(new))
-        return tower
+    tracker = defaultdict(list)
+    target = -1
+
+    def get_rock_initial_coords(rock):
+        return [lib.cross_sum(coord, (top + 4, 2)) for coord in rock]
+
+    def drop_rock(top):
+        can_drop = True
+        while can_drop:
+            jet = next(jets)
+            move_rock(filled, rock, jet)  # move sideways
+            can_drop = move_rock(filled, rock, "v")  # move down (drop)
+
+        filled.update(rock)
+        return max([top, find_top_row(rock)])
+
+    def calculate_final_top():
+        remaining = top - ((rock_count // cycle_rock_count) * cycle_height)
+        return remaining + ((max_rocks // cycle_rock_count) * cycle_height)
+
+    def find_target():
+        if rock_count != 0 and rock_count % 5 == 0:
+            tracker[rock_count] = [Cycle(top, 0)]
+
+        potential_cycle_rock_counts = [rc for rc in tracker if rock_count % rc == 0]
+        for rc in potential_cycle_rock_counts:
+            last_top = tracker[rc][-1].top
+            if last_top != top:
+                tracker[rc].append(Cycle(top, top - last_top))
+
+            if len(tracker[rc]) > 3 and \
+                tracker[rc][1].diff == tracker[rc][2].diff == tracker[rc][3].diff:
+                cycle_rock_count = rc
+                cycle_height = tracker[rc][-1].diff
+                target = rock_count + (max_rocks % cycle_rock_count)
+                return cycle_rock_count, cycle_height, target
+
+            elif len(tracker[rc]) > 3 and tracker[rc][-1].diff != tracker[rc][-2].diff:
+                del tracker[rc]
+
+        return None, None, -1
 
     while True:
+        rock = get_rock_initial_coords(next(rocks))
+        top = drop_rock(top)
+        rock_count += 1
 
-        if not can_drop:
-            rock_count += 1
-            if rock_count % 100_000 == 0:
-                print(rock_count)
-            if len(tower) > 6 and \
-                "".join(tower[-2]) == "".join(tower[2]) and \
-                "".join(tower[-3]) == "".join(tower[1]):
-                # "".join(tower[-4]) == "".join(tower[0]):
-                print("".join(tower[0]), "".join(tower[-4]))
-                print("".join(tower[1]), "".join(tower[-3]))
-                print("".join(tower[2]), "".join(tower[-2]))
-                print("len:", len(tower) - 1)
-                return len(tower) - 1  # minus the floor
-            if rock_count == max_rocks + 1:
-                return len(tower) - 1  # minus the floor
-            rock = next(rocks)
-            tower = insert_rock(tower, rock)
-            print_grid(tower, SHOULD_PRINT)
+        # part 1
+        if rock_count == max_rocks:
+            return top
 
-        jet = next(jets)
-        move_rock(tower, rock, jet)
-        can_drop = move_rock(tower, rock, "v")
+        # part 2
+        if rock_count == target:
+            return calculate_final_top()
+
+        if target > 0:
+            continue
+        cycle_rock_count, cycle_height, target = find_target()
 
 
-def move_rock(tower, rock, direction):
-    if SHOULD_PRINT:
+def find_top_row(coords):
+    return max([row for row, _ in coords])
+
+
+def move_rock(filled, rock, direction):
+    if PRINT_GRID:
         print("\ndirection:", direction)
 
-    def check(chars):
-        return all([char not in ["#", "-", "|"] for char in chars])
-
-    def find_cols(row):
-        return [col for col, char in enumerate(tower[row]) if char == "@"]
-
-    z = 0
-    while not find_cols(z):
-        z += 1
+    def check(coords):
+        return all([0 <= col < 7 and (row, col) not in filled for row, col in coords])
 
     can_drop = True
     if direction == "v":
-        if rock.name == "hor_line":
-            cols = find_cols(z + 0)
-            if check([tower[z + 1][col] for col in cols]):
-                for col in cols:
-                    tower[z + 0][col] = "."
-                    tower[z + 1][col] = "@"
-            else:
-                can_drop = False
-        if rock.name == "cross":
-            left, center, right = find_cols(z + 1)
-            if check([tower[z + 2][left], tower[z + 3][center], tower[z + 2][right]]):
-                tower[z + 1][left] = "."
-                tower[z + 0][center] = "."
-                tower[z + 1][right] = "."
-                tower[z + 2][left] = "@"
-                tower[z + 3][center] = "@"
-                tower[z + 2][right] = "@"
-            else:
-                can_drop = False
-        if rock.name == "l_shape":
-            cols = find_cols(z + 2)
-            right = cols[-1]
-            if check([tower[z + 3][col] for col in cols]):
-                for col in cols:
-                    tower[z + 2][col] = "."
-                    tower[z + 3][col] = "@"
-                tower[z + 0][right] = "."
-                tower[z + 2][right] = "@"
-            else:
-                can_drop = False
-        if rock.name == "ver_line":
-            center = find_cols(z + 0)[0]
-            if check([tower[z + 4][center]]):
-                tower[z + 0][center] = "."
-                tower[z + 4][center] = "@"
-            else:
-                can_drop = False
-        if rock.name == "square":
-            cols = find_cols(z + 0)
-            if check([tower[z + 2][col] for col in cols]):
-                for col in cols:
-                    tower[z + 0][col] = "."
-                    tower[z + 2][col] = "@"
-            else:
-                can_drop = False
+        new_coords = [lib.cross_sum(coord, (-1, 0)) for coord in rock]
+        if check(new_coords):
+            del rock[:]
+            rock.extend(new_coords)
+        else:
+            can_drop = False
 
     elif direction == ">":
-        if rock.name == "hor_line":
-            left, _, _, right = find_cols(z + 0)
-            if check([tower[z + 0][right + 1]]):
-                tower[z + 0][left] = "."
-                tower[z + 0][right + 1] = "@"
-        if rock.name == "cross":
-            center = find_cols(z + 0)[0]
-            if check([tower[z + 0][center + 1], tower[z + 1][center + 2], tower[z + 2][center + 1]]):
-                tower[z + 0][center] = "."
-                tower[z + 0][center + 1] = "@"
-                tower[z + 1][center - 1] = "."
-                tower[z + 1][center + 2] = "@"
-                tower[z + 2][center] = "."
-                tower[z + 2][center + 1] = "@"
-        if rock.name == "l_shape":
-            right = find_cols(z + 0)[0]
-            if check([tower[z + row][right + 1] for row in range(3)]):
-                tower[z + 0][right] = "."
-                tower[z + 0][right + 1] = "@"
-                tower[z + 1][right] = "."
-                tower[z + 1][right + 1] = "@"
-                tower[z + 2][right - 2] = "."
-                tower[z + 2][right + 1] = "@"
-        if rock.name == "ver_line":
-            center = find_cols(z + 0)[0]
-            if check([tower[z + row][center + 1] for row in range(4)]):
-                for row in range(4):
-                    tower[z + row][center] = "."
-                    tower[z + row][center + 1] = "@"
-        if rock.name == "square":
-            left, right = find_cols(z + 0)
-            if check([tower[z + row][right + 1] for row in range(2)]):
-                for row in range(2):
-                    tower[z + row][left] = "."
-                    tower[z + row][right + 1] = "@"
+        new_coords = [lib.cross_sum(coord, (0, 1)) for coord in rock]
+        if check(new_coords):
+            del rock[:]
+            rock.extend(new_coords)
 
     elif direction == "<":
-        if rock.name == "hor_line":
-            left, _, _, right = find_cols(z + 0)
-            if check([tower[z + 0][left - 1]]):
-                tower[z + 0][right] = "."
-                tower[z + 0][left - 1] = "@"
-        if rock.name == "cross":
-            center = find_cols(z + 0)[0]
-            if check([tower[z + 0][center - 1], tower[z + 1][center - 2], tower[z + 2][center - 1]]):
-                tower[z + 0][center] = "."
-                tower[z + 0][center - 1] = "@"
-                tower[z + 1][center + 1] = "."
-                tower[z + 1][center - 2] = "@"
-                tower[z + 2][center] = "."
-                tower[z + 2][center - 1] = "@"
-        if rock.name == "l_shape":
-            left, center, right = find_cols(z + 2)
-            if check([tower[z + 0][right - 1], tower[z + 1][right - 1], tower[z + 2][left - 1]]):
-                tower[z + 0][right] = "."
-                tower[z + 0][right - 1] = "@"
-                tower[z + 1][right] = "."
-                tower[z + 1][right - 1] = "@"
-                tower[z + 2][right] = "."
-                tower[z + 2][left - 1] = "@"
-        if rock.name == "ver_line":
-            center = find_cols(z + 0)[0]
-            if check([tower[z + row][center - 1] for row in range(4)]):
-                for row in range(4):
-                    tower[z + row][center] = "."
-                    tower[z + row][center - 1] = "@"
-        if rock.name == "square":
-            left, right = find_cols(z + 0)
-            if check([tower[z + row][left - 1] for row in range(2)]):
-                for row in range(2):
-                    tower[z + row][right] = "."
-                    tower[z + row][left - 1] = "@"
+        new_coords = [lib.cross_sum(coord, (0, -1)) for coord in rock]
+        if check(new_coords):
+            del rock[:]
+            rock.extend(new_coords)
 
-    for _ in range(4):
-        if "".join(tower[z + 0]) == "".join(EMPTY_LINE):
-            del tower[z + 0]
-
-    if not can_drop:
-        for row in range(4):
-            if row > len(tower) - 1:
-                break
-            for col in range(1, 8):
-                if tower[z + row][col] == "@":
-                    tower[z + row][col] = "#"
-
-    print_grid(tower, SHOULD_PRINT)
+    print_grid(filled, rock, find_top_row(rock), PRINT_GRID)
     return can_drop
 
 
-def print_grid(tower, SHOULD_PRINT):
-    if not SHOULD_PRINT:
+def print_grid(filled, current_rock, top, PRINT_GRID):
+    if not PRINT_GRID:
         return
+
+    tower = [list(".......") for _ in range(top + 1)]
+
+    for row, col in current_rock:
+        tower[row][col] = "@"
+    for row, col in filled:
+        if row != 0:
+            tower[row][col] = "#"
+
     print()
-    for row in tower[:PRINT_HEIGHT]:
-        print("".join(row))
+    for row in reversed(tower[1:]):
+        print("|" + "".join(row) + "|")
+    print("+-------+")
 
 
-class Rock(NamedTuple):
-    height: int
-    width: int
-    initial: list[list[str]]
-    name: str
-
-
-EMPTY_LINE = list("|.......|")
-I_HOR_LINE = [
-    list("|..@@@@.|")
-]
-I_CROSS = [
-    list("|...@...|"),
-    list("|..@@@..|"),
-    list("|...@...|"),
-]
-I_L_SHAPE = [
-    list("|....@..|"),
-    list("|....@..|"),
-    list("|..@@@..|"),
-]
-I_VER_LINE = [
-    list("|..@....|"),
-    list("|..@....|"),
-    list("|..@....|"),
-    list("|..@....|"),
-]
-I_SQUARE = [
-    list("|..@@...|"),
-    list("|..@@...|"),
-]
-HOR_LINE = Rock(1, 4, I_HOR_LINE, "hor_line")
-CROSS    = Rock(3, 3, I_CROSS, "cross")
-L_SHAPE  = Rock(3, 3, I_L_SHAPE, "l_shape")
-VER_LINE = Rock(4, 1, I_VER_LINE, "ver_line")
-SQUARE   = Rock(2, 2, I_SQUARE, "square")
+class Cycle(NamedTuple):
+    top: int
+    diff: int

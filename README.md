@@ -42,8 +42,8 @@
 [![Day 12](https://badgen.net/badge/12/%E2%98%85%E2%98%85/yellow)](my_solutions/day12)
 [![Day 13](https://badgen.net/badge/13/%E2%98%85%E2%98%85/yellow)](my_solutions/day13)
 [![Day 14](https://badgen.net/badge/14/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
-<!-- [![Day 15](https://badgen.net/badge/15/%E2%98%85%E2%98%85/yellow)](my_solutions/day15)
-[![Day 16](https://badgen.net/badge/16/%E2%98%85%E2%98%85/yellow)](my_solutions/day16)
+[![Day 15](https://badgen.net/badge/15/%E2%98%85%E2%98%85/yellow)](my_solutions/day15)
+<!-- [![Day 16](https://badgen.net/badge/16/%E2%98%85%E2%98%85/yellow)](my_solutions/day16)
 [![Day 17](https://badgen.net/badge/17/%E2%98%85%E2%98%85/yellow)](my_solutions/day17)
 [![Day 18](https://badgen.net/badge/18/%E2%98%85%E2%98%85/yellow)](my_solutions/day18)
 [![Day 19](https://badgen.net/badge/19/%E2%98%85%E2%98%85/yellow)](my_solutions/day19)
@@ -139,8 +139,8 @@ $ make test d=12 p=1
 | [📁 12](my_solutions/day_12)	| **Hill Climbing Algorithm**		| 📃 **Input:** a heightmap of the surrounding area.<br />⭐ **Part One:** find the fewest steps required to move from the current positions to the highest location. <br />⭐ **Part Two:** find the fewest steps required to move starting from any square with the lowest elevation to the highest location.
 | [📁 13](my_solutions/day_13)	| **Distress Signal**		| 📃 **Input:** the list of received packets.<br />⭐ **Part One:** find the sum of the indices of pairs of packets that are in the right order. <br />⭐ **Part Two:** organize all of the packets into the correct order to find the decoder key for the distress signal.
 | [📁 14](my_solutions/day_14)	| **Regolith Reservoir**		| 📃 **Input:** the scan of a two-dimensional vertical slice of the cave.<br />⭐ **Part One:** simulate the falling sand to find how many units of sand come to rest before sand starts flowing into the abyss below. <br />⭐ **Part Two:** simulate the falling sand until the source of the sand becomes blocked, then find how many units of sand come to rest.
-<!-- | [📁 15](my_solutions/day_15)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 16](my_solutions/day_16)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 15](my_solutions/day_15)	| **Beacon Exclusion Zone**		| 📃 **Input:** a list of sensor positions and closest beacons.<br />⭐ **Part One:** in the row where y=2000000, find how many positions cannot contain a beacon. <br />⭐ **Part Two:** find the only possible position for the distress beacon, then calculate its tuning frequency.
+<!-- | [📁 16](my_solutions/day_16)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 17](my_solutions/day_17)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 18](my_solutions/day_18)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 19](my_solutions/day_19)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

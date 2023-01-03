@@ -27,8 +27,7 @@ class DayPuzzleSolver():
     def solve_part_2(self, raw_input: str):
         beacons_by_sensor, distance_by_sensor = process_input(raw_input)
         bound = 4_000_000
-        all_intersections = find_all_intersections(beacons_by_sensor, distance_by_sensor, bound)
-        intersection = find_missing_intersection(beacons_by_sensor, all_intersections)
+        intersection = find_missing_intersection(beacons_by_sensor, distance_by_sensor, bound)
         return bound * intersection[X] + intersection[Y]
 
 
@@ -66,78 +65,67 @@ def find_no_beacon_locations_in_row(
     return no_beacons_x
 
 
-def list_locations_just_outside_ranges(distance_by_sensor: DistanceBySensor, bound: int):
+def list_locations_just_outside_ranges(sensor: Location, distance: float, bound: int):
 
     def in_bounds(coord: Location):
         return all(0 < i < bound for i in coord)
 
-    locations_1_by_sensor: dict[Location, set[Location]] = collections.defaultdict(set)
-    locations_2_by_sensor: dict[Location, set[Location]] = collections.defaultdict(set)
-    for sensor, distance in distance_by_sensor.items():
-        border = int(distance + 1)
-        north = (sensor[X], sensor[Y] - border)
-        south = (sensor[X], sensor[Y] + border)
-        west  = (sensor[X] - border, sensor[Y])
-        east  = (sensor[X] + border, sensor[Y])
-        locations = [north, east, south, west]
-        locations_1_by_sensor[sensor].update(locations)
-        locations_2_by_sensor[sensor].update(locations)
+    locations_1: set[Location] = set()
+    locations_2: set[Location] = set()
 
-        s = 1
-        for _ in range(north[X] + 1, east[X]):
-            coord = (int(north[X] + s), int(north[Y] + s))
-            if in_bounds(coord):
-                locations_1_by_sensor[sensor].add(coord)
-            s += 1
+    border = int(distance + 1)
+    north = (sensor[X], sensor[Y] - border)
+    south = (sensor[X], sensor[Y] + border)
+    west  = (sensor[X] - border, sensor[Y])
+    east  = (sensor[X] + border, sensor[Y])
+    locations = [north, east, south, west]
+    locations_1.update(locations)
+    locations_2.update(locations)
 
-        s = 1
-        for _ in range(west[X] + 1, south[X]):
-            coord = (int(west[X] + s), int(west[Y] + s))
-            if in_bounds(coord):
-                locations_1_by_sensor[sensor].add(coord)
-            s += 1
+    s = 1
+    for _ in range(north[X] + 1, east[X]):
+        coord = (int(north[X] + s), int(north[Y] + s))
+        if in_bounds(coord):
+            locations_1.add(coord)
+        s += 1
 
-        x, y = -1, 1
-        for _ in range(north[Y] + 1, west[Y]):
-            coord = (int(north[X] + x), int(north[Y] + y))
-            if in_bounds(coord):
-                locations_2_by_sensor[sensor].add(coord)
-            x -= 1
-            y += 1
+    s = 1
+    for _ in range(west[X] + 1, south[X]):
+        coord = (int(west[X] + s), int(west[Y] + s))
+        if in_bounds(coord):
+            locations_1.add(coord)
+        s += 1
 
-        x, y = -1, 1
-        for _ in range(east[Y] + 1, south[Y]):
-            coord = (int(east[X] + x), int(east[Y] + y))
-            if in_bounds(coord):
-                locations_2_by_sensor[sensor].add(coord)
-            x -= 1
-            y += 1
+    x, y = -1, 1
+    for _ in range(north[Y] + 1, west[Y]):
+        coord = (int(north[X] + x), int(north[Y] + y))
+        if in_bounds(coord):
+            locations_2.add(coord)
+        x -= 1
+        y += 1
 
-    return locations_1_by_sensor, locations_2_by_sensor
+    x, y = -1, 1
+    for _ in range(east[Y] + 1, south[Y]):
+        coord = (int(east[X] + x), int(east[Y] + y))
+        if in_bounds(coord):
+            locations_2.add(coord)
+        x -= 1
+        y += 1
+
+    return locations_1, locations_2
 
 
-def find_all_intersections(
+def find_missing_intersection(
     beacons_by_sensor: BeaconsBySensor, distance_by_sensor: DistanceBySensor, bound: int,
 ):
-    locations_1, locations_2 = \
-        list_locations_just_outside_ranges(distance_by_sensor, bound)
+    locations_1_by_sensor: dict[Location, set[Location]] = {}
+    locations_2_by_sensor: dict[Location, set[Location]] = {}
 
-    sensor_pairs = lib.list_combinations(beacons_by_sensor.keys(), 2)
-    all_intersections: set[Location] = set()
-    for sensor_a, sensor_b in sensor_pairs:
-        sensors_distance = calc_md(sensor_a, sensor_b)
-        if sensors_distance > distance_by_sensor[sensor_a] + distance_by_sensor[sensor_b]:
-            continue
-
-        intersections = locations_1[sensor_a].intersection(locations_2[sensor_b])
-        all_intersections.update(intersections)
-        intersections = locations_2[sensor_a].intersection(locations_1[sensor_b])
-        all_intersections.update(intersections)
-
-    return all_intersections
-
-
-def find_missing_intersection(beacons_by_sensor: BeaconsBySensor, all_intersections: set[Location]):
+    def list_locations(sensors):
+        for sensor in sensors:
+            if sensor not in locations_1_by_sensor:
+                locations_1_by_sensor[sensor], locations_2_by_sensor[sensor] = \
+                    list_locations_just_outside_ranges(sensor, distance_by_sensor[sensor], bound)
 
     def is_outside_sensor_range(sensor: Location, beacon: Location, intersection: Location):
         return calc_md(sensor, intersection) > calc_md(sensor, beacon)
@@ -146,9 +134,24 @@ def find_missing_intersection(beacons_by_sensor: BeaconsBySensor, all_intersecti
         return all(is_outside_sensor_range(sensor, beacon, intersection)
             for sensor, beacon in beacons_by_sensor.items())
 
-    for intersection in all_intersections:
-        if is_outside_all_ranges(intersection):
-            return intersection
+    def try_find_missing_intersection(sensor_a: Location, sensor_b: Location):
+        intersections = \
+            locations_1_by_sensor[sensor_a].intersection(locations_2_by_sensor[sensor_b])
+        for intersection in intersections:
+            if is_outside_all_ranges(intersection):
+                return intersection
+
+    for sensors in lib.list_combinations(beacons_by_sensor.keys(), 2):
+        sensors_distance = calc_md(*sensors)
+        if sensors_distance > distance_by_sensor[sensors[0]] + distance_by_sensor[sensors[1]]:
+            continue
+
+        list_locations(sensors)
+
+        for sensor_pair in [sensors, reversed(sensors)]:
+            missing_intersection = try_find_missing_intersection(*sensor_pair)
+            if missing_intersection is not None:
+                return missing_intersection
 
 
 def solve_part_2_math(raw_input: str):

@@ -1,9 +1,8 @@
+from __future__ import annotations
 import sys; sys.path.insert(0, '..')
 import aoc_lib as lib
-from pprint import pprint
-
-from collections import defaultdict
-from typing import NamedTuple
+from aoc_lib import ROW, COL
+from aoc_lib.imports import *
 
 
 PRINT_GRID = False
@@ -22,6 +21,10 @@ class DayPuzzleSolver():
         return play_tetris(jets, 1_000_000_000_000)
 
 
+Location = tuple[int, int]
+Rock = list[Location]
+
+
 HOR_LINE = [(0, 0), (0, 1), (0, 2), (0, 3)]
 CROSS    = [(0, 1), (1, 0), (1, 1), (1, 2), (2, 1)]
 L_SHAPE  = [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)]
@@ -29,23 +32,28 @@ VER_LINE = [(0, 0), (1, 0), (2, 0), (3, 0)]
 SQUARE   = [(0, 0), (0, 1), (1, 0), (1, 1)]
 
 
+class Cycle(NamedTuple):
+    top: int
+    diff: int
+
+
 def process_input(raw_input: str):
     return lib.cycle(list(raw_input))
 
 
-def play_tetris(jets, max_rocks):
+def play_tetris(jets: Iterable[str], max_rocks: int):
     rocks = lib.cycle([HOR_LINE, CROSS, L_SHAPE, VER_LINE, SQUARE])
-    filled = set([(0, col) for col in range(7)])
+    filled = set([(0, col) for col in range(7)])  # initialized with floor
     rock_count = 0
     top = 0
 
-    tracker = defaultdict(list)
+    tracker = collections.defaultdict(list)
     target = -1
 
-    def get_rock_initial_coords(rock):
+    def get_rock_initial_coords(rock: Rock):
         return [lib.cross_sum(coord, (top + 4, 2)) for coord in rock]
 
-    def drop_rock(top):
+    def drop_rock(top: int):
         can_drop = True
         while can_drop:
             jet = next(jets)
@@ -99,15 +107,15 @@ def play_tetris(jets, max_rocks):
         cycle_rock_count, cycle_height, target = find_target()
 
 
-def find_top_row(coords):
+def find_top_row(coords: Location):
     return max([row for row, _ in coords])
 
 
-def move_rock(filled, rock, direction):
+def move_rock(filled: set[Location], rock: Rock, direction: str):
     if PRINT_GRID:
         print("\ndirection:", direction)
 
-    def check(coords):
+    def check(coords: Location):
         return all([0 <= col < 7 and (row, col) not in filled for row, col in coords])
 
     can_drop = True
@@ -135,7 +143,7 @@ def move_rock(filled, rock, direction):
     return can_drop
 
 
-def print_grid(filled, current_rock, top, PRINT_GRID):
+def print_grid(filled: set[Location], current_rock: Rock, top: int, PRINT_GRID: bool):
     if not PRINT_GRID:
         return
 
@@ -151,8 +159,3 @@ def print_grid(filled, current_rock, top, PRINT_GRID):
     for row in reversed(tower[1:]):
         print("|" + "".join(row) + "|")
     print("+-------+")
-
-
-class Cycle(NamedTuple):
-    top: int
-    diff: int

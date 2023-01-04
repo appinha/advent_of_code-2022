@@ -46,8 +46,8 @@
 [![Day 16](https://badgen.net/badge/16/%E2%98%85%E2%98%85/yellow)](my_solutions/day16)
 [![Day 17](https://badgen.net/badge/17/%E2%98%85%E2%98%85/yellow)](my_solutions/day17)
 [![Day 18](https://badgen.net/badge/18/%E2%98%85%E2%98%85/yellow)](my_solutions/day18)
-<!--
 [![Day 19](https://badgen.net/badge/19/%E2%98%85%E2%98%85/yellow)](my_solutions/day19)
+<!--
 [![Day 20](https://badgen.net/badge/20/%E2%98%85%E2%98%85/yellow)](my_solutions/day20)
 [![Day 21](https://badgen.net/badge/21/%E2%98%85%E2%98%85/yellow)](my_solutions/day21)
 [![Day 22](https://badgen.net/badge/22/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
@@ -145,8 +145,8 @@ $ make test d=12 p=1
 | [📁 16](my_solutions/day_16)	| **Proboscidea Volcanium**		| 📃 **Input:** a report of each valve's flow rate if it were opened (in pressure per minute) and the tunnels that connect the valves.<br />⭐ **Part One:** find the most pressure you can release form the valves. <br />⭐ **Part Two:** with you and an elephant working together for 26 minutes, find the most pressure that could be released.
 | [📁 17](my_solutions/day_17)	| **Pyroclastic Flow**		| 📃 **Input:** a list of jets of hot gas.<br />⭐ **Part One:** find how many units tall will the tower of rocks be after 2022 rocks have stopped falling. <br />⭐ **Part Two:** find how tall will the tower be after 1000000000000 rocks have stopped.
 | [📁 18](my_solutions/day_18)	| **Boiling Boulders**		| 📃 **Input:** a quick scan of a droplet (a list of 3D coordinates).<br />⭐ **Part One:** find the surface area of the scanned lava droplet. <br />⭐ **Part Two:** find the exterior surface area of the scanned lava droplet.
+| [📁 19](my_solutions/day_19)	| **Not Enough Minerals**		| 📃 **Input:** a list of blueprints.<br />⭐ **Part One:** determine the quality level of each blueprint using the largest number of geodes it could produce in 24 minutes, then add up the quality level of all of the blueprints in your list. <br />⭐ **Part Two:** determine the largest number of geodes that could be opened using each of the first three blueprints, then multiply these numbers together.
 <!--
-| [📁 19](my_solutions/day_19)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 20](my_solutions/day_20)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 21](my_solutions/day_21)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 22](my_solutions/day_22)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

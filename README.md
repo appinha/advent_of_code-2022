@@ -45,14 +45,16 @@
 [![Day 15](https://badgen.net/badge/15/%E2%98%85%E2%98%85/yellow)](my_solutions/day15)
 [![Day 16](https://badgen.net/badge/16/%E2%98%85%E2%98%85/yellow)](my_solutions/day16)
 [![Day 17](https://badgen.net/badge/17/%E2%98%85%E2%98%85/yellow)](my_solutions/day17)
-<!-- [![Day 18](https://badgen.net/badge/18/%E2%98%85%E2%98%85/yellow)](my_solutions/day18)
+[![Day 18](https://badgen.net/badge/18/%E2%98%85%E2%98%85/yellow)](my_solutions/day18)
+<!--
 [![Day 19](https://badgen.net/badge/19/%E2%98%85%E2%98%85/yellow)](my_solutions/day19)
 [![Day 20](https://badgen.net/badge/20/%E2%98%85%E2%98%85/yellow)](my_solutions/day20)
 [![Day 21](https://badgen.net/badge/21/%E2%98%85%E2%98%85/yellow)](my_solutions/day21)
 [![Day 22](https://badgen.net/badge/22/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
 [![Day 23](https://badgen.net/badge/23/%E2%98%85%E2%98%85/yellow)](my_solutions/day23)
 [![Day 24](https://badgen.net/badge/24/%E2%98%85%E2%98%85/yellow)](my_solutions/day24)
-[![Day 25](https://badgen.net/badge/25/%E2%98%85%E2%98%85/yellow)](my_solutions/day25) -->
+[![Day 25](https://badgen.net/badge/25/%E2%98%85%E2%98%85/yellow)](my_solutions/day25)
+-->
 
 (TODO: add final picture of AoC calendar)
 
@@ -142,7 +144,8 @@ $ make test d=12 p=1
 | [📁 15](my_solutions/day_15)	| **Beacon Exclusion Zone**		| 📃 **Input:** a list of sensor positions and closest beacons.<br />⭐ **Part One:** in the row where y=2000000, find how many positions cannot contain a beacon. <br />⭐ **Part Two:** find the only possible position for the distress beacon, then calculate its tuning frequency.
 | [📁 16](my_solutions/day_16)	| **Proboscidea Volcanium**		| 📃 **Input:** a report of each valve's flow rate if it were opened (in pressure per minute) and the tunnels that connect the valves.<br />⭐ **Part One:** find the most pressure you can release form the valves. <br />⭐ **Part Two:** with you and an elephant working together for 26 minutes, find the most pressure that could be released.
 | [📁 17](my_solutions/day_17)	| **Pyroclastic Flow**		| 📃 **Input:** a list of jets of hot gas.<br />⭐ **Part One:** find how many units tall will the tower of rocks be after 2022 rocks have stopped falling. <br />⭐ **Part Two:** find how tall will the tower be after 1000000000000 rocks have stopped.
-<!-- | [📁 18](my_solutions/day_18)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
+| [📁 18](my_solutions/day_18)	| **Boiling Boulders**		| 📃 **Input:** a quick scan of a droplet (a list of 3D coordinates).<br />⭐ **Part One:** find the surface area of the scanned lava droplet. <br />⭐ **Part Two:** find the exterior surface area of the scanned lava droplet.
+<!--
 | [📁 19](my_solutions/day_19)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 20](my_solutions/day_20)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 21](my_solutions/day_21)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

@@ -49,8 +49,8 @@
 [![Day 19](https://badgen.net/badge/19/%E2%98%85%E2%98%85/yellow)](my_solutions/day19)
 [![Day 20](https://badgen.net/badge/20/%E2%98%85%E2%98%85/yellow)](my_solutions/day20)
 [![Day 21](https://badgen.net/badge/21/%E2%98%85%E2%98%85/yellow)](my_solutions/day21)
-<!--
 [![Day 22](https://badgen.net/badge/22/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
+<!--
 [![Day 23](https://badgen.net/badge/23/%E2%98%85%E2%98%85/yellow)](my_solutions/day23)
 [![Day 24](https://badgen.net/badge/24/%E2%98%85%E2%98%85/yellow)](my_solutions/day24)
 [![Day 25](https://badgen.net/badge/25/%E2%98%85%E2%98%85/yellow)](my_solutions/day25)
@@ -148,8 +148,8 @@ $ make test d=12 p=1
 | [📁 19](my_solutions/day_19)	| **Not Enough Minerals**		| 📃 **Input:** a list of blueprints.<br />⭐ **Part One:** determine the quality level of each blueprint using the largest number of geodes it could produce in 24 minutes, then add up the quality level of all of the blueprints in your list. <br />⭐ **Part Two:** determine the largest number of geodes that could be opened using each of the first three blueprints, then multiply these numbers together.
 | [📁 20](my_solutions/day_20)	| **Grove Positioning System**		| 📃 **Input:** a file that contains the grove's coordinates (a list of integers).<br />⭐ **Part One:** mix your encrypted file exactly once, then find the sum of the three numbers that form the grove coordinates. <br />⭐ **Part Two:** apply the decryption key and mix your encrypted file ten times, then find the sum of the three numbers that form the grove coordinates.
 | [📁 21](my_solutions/day_21)	| **Monkey Math**		| 📃 **Input:** a list of monkey math.<br />⭐ **Part One:** find what number will the monkey named root yell. <br />⭐ **Part Two:** find what number do you yell to pass root's equality test.
+| [📁 22](my_solutions/day_22)	| **Monkey Map**		| 📃 **Input:** a map of the board (a 2D grid representation of a cube) and the path you must follow (an alphanumeric string).<br />⭐ **Part One:** follow the path given in the monkeys' notes to find the final password. <br />⭐ **Part Two:** fold the map into a cube, then follow the path given in the monkeys' notes to find the final password.
 <!--
-| [📁 22](my_solutions/day_22)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 23](my_solutions/day_23)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 24](my_solutions/day_24)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
 | [📁 25](my_solutions/day_25)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .

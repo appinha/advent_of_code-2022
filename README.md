@@ -50,11 +50,9 @@
 [![Day 20](https://badgen.net/badge/20/%E2%98%85%E2%98%85/yellow)](my_solutions/day20)
 [![Day 21](https://badgen.net/badge/21/%E2%98%85%E2%98%85/yellow)](my_solutions/day21)
 [![Day 22](https://badgen.net/badge/22/%E2%98%85%E2%98%85/yellow)](my_solutions/day14)
-<!--
 [![Day 23](https://badgen.net/badge/23/%E2%98%85%E2%98%85/yellow)](my_solutions/day23)
 [![Day 24](https://badgen.net/badge/24/%E2%98%85%E2%98%85/yellow)](my_solutions/day24)
 [![Day 25](https://badgen.net/badge/25/%E2%98%85%E2%98%85/yellow)](my_solutions/day25)
--->
 
 (TODO: add final picture of AoC calendar)
 
@@ -149,8 +147,6 @@ $ make test d=12 p=1
 | [📁 20](my_solutions/day_20)	| **Grove Positioning System**		| 📃 **Input:** a file that contains the grove's coordinates (a list of integers).<br />⭐ **Part One:** mix your encrypted file exactly once, then find the sum of the three numbers that form the grove coordinates. <br />⭐ **Part Two:** apply the decryption key and mix your encrypted file ten times, then find the sum of the three numbers that form the grove coordinates.
 | [📁 21](my_solutions/day_21)	| **Monkey Math**		| 📃 **Input:** a list of monkey math.<br />⭐ **Part One:** find what number will the monkey named root yell. <br />⭐ **Part Two:** find what number do you yell to pass root's equality test.
 | [📁 22](my_solutions/day_22)	| **Monkey Map**		| 📃 **Input:** a map of the board (a 2D grid representation of a cube) and the path you must follow (an alphanumeric string).<br />⭐ **Part One:** follow the path given in the monkeys' notes to find the final password. <br />⭐ **Part Two:** fold the map into a cube, then follow the path given in the monkeys' notes to find the final password.
-<!--
-| [📁 23](my_solutions/day_23)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 24](my_solutions/day_24)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
-| [📁 25](my_solutions/day_25)	| **Title**		| 📃 **Input:** .<br />⭐ **Part One:** . <br />⭐ **Part Two:** .
- -->
+| [📁 23](my_solutions/day_23)	| **Unstable Diffusion**		| 📃 **Input:** a scan of the grove.<br />⭐ **Part One:** simulate the Elves' process and find the smallest rectangle that contains the Elves after 10 rounds, then find how many empty ground tiles that rectangle contains. <br />⭐ **Part Two:** figure out where the Elves need to go, then find the number of the first round where no Elf moves.
+| [📁 24](my_solutions/day_24)	| **Blizzard Basin**		| 📃 **Input:** a map of the valley and the blizzards.<br />⭐ **Part One:** find the fewest number of minutes required to avoid the blizzards and reach the goal. <br />⭐ **Part Two:** find the fewest number of minutes required to reach the goal, go back to the start, then reach the goal again.
+| [📁 25](my_solutions/day_25)	| **Full of Hot Air**		| 📃 **Input:** a list of all of the fuel requirements.<br />⭐ **Part One:** find the SNAFU number needed to supply to Bob's console.
